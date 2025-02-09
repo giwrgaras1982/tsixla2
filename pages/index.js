@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { auth } from "../firebaseConfig";
+import { signOut } from "firebase/auth";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -18,7 +20,18 @@ export default function HomePage() {
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1 style={{ fontSize: "2rem", marginBottom: "10px" }}>Welcome to Tsixla</h1>
-      
+      <button 
+  onClick={() => signOut(auth)}
+  style={{
+    padding: "10px",
+    backgroundColor: "red",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
+    marginBottom: "20px"
+  }}>
+  Logout
+</button>
       <input
         type="text"
         placeholder="Search for products..."
